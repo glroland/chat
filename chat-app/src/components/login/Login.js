@@ -15,7 +15,7 @@ class Login extends React.Component
 
     handleSubmit(e)
     {
-      let playerName = this.playerNameRef.current.value;
+        let playerName = this.playerNameRef.current.value;
         console.log("Submit button clicked w/Username = " + playerName);
         setPlayerName(playerName);
         console.log("Saved Player Name after call - " + getPlayerName());
@@ -43,10 +43,16 @@ class Login extends React.Component
               <input type="text" ref={this.playerNameRef} />
             </label>
             <div>
-              <button type="submit">Submit</button>
+              <button type="submit">Login</button>
             </div>
           </form>
-          <a href="#" onClick={this.handleQuickClick}>Ash</a>
+          <div>
+            <a href="#" onClick={this.handleQuickClick}>Ash</a><br/>
+            <a href="#" onClick={this.handleQuickClick}>Linda</a><br/>
+            <a href="#" onClick={this.handleQuickClick}>Cheryl</a><br/>
+            <a href="#" onClick={this.handleQuickClick}>Scott</a><br/>
+            <a href="#" onClick={this.handleQuickClick}>Shelly</a><br/>
+          </div>
         </div>
       );
   }

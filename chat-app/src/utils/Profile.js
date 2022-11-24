@@ -19,6 +19,12 @@ export function getPlayerName()
     return sessionStorage.getItem(SESSION_ID_NAME);
 }
 
+export function doLogout()
+{
+    console.log("Logging out user");
+    sessionStorage.removeItem(SESSION_ID_NAME);
+}
+
 export function isLoggedIn()
 {
     const playerName = getPlayerName();

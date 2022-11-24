@@ -1,6 +1,6 @@
 //import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { isLoggedIn, getPlayerName } from "../utils/Profile.js";
+import { isLoggedIn, getPlayerName, doLogout } from "../utils/Profile.js";
 import Login from "./login/Login.js";
 import Home from "./home/Home.js";
 
@@ -11,21 +11,27 @@ function App() {
     return <Login />
   }
 
+  function handleLogout(e) {
+    e.preventDefault();
+    console.log('Logout button clicked');
+    doLogout();
+
+    // rerender page based on an unauthenticated state
+    window.location.reload(false);
+  }
+
   return (
     <div className="App">
-      <table width="100%" border="0">
-        <tbody>
-          <tr>
-            <td><header className="App-header">
-                Simple Chat App
-              </header></td>
-          </tr>
-          <tr>
-            <td><Home /></td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="App-header">
+        Simple Chat App<br/>
+        <div className="App-header-text">
+          Welcome {getPlayerName()}! 
+          <div className="App-header-link"><a href="#" onClick={handleLogout}>(Logout)</a></div>
+        </div>
+      </div>
+      <div><Home /></div>
     </div>
+
   );
 }
 
